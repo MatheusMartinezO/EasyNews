@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>painel do admin</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/3c8e4257f7.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons.flaticon.com/png/128/4076/premium/4076892.png?token=exp=1647959931~hmac=a411d98374b7fa1242f7f545a6aaeb3c">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+header{
+    width: 100%;
+    padding:8px 0;
+    background-color: #0AACDC;
+    padding: 10px 15px;
+}
+.center{
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+.logo h2 a{
+    font-size: 28px;
+    color:white;
+    text-decoration: none;
+    font-weight:normal;
+}
+.logo h2 b{
+    font-weight: bold;
+}
+.center > .form-busca form{
+    position: relative;
+}
+.center .form-busca i{
+    padding-left: 9px;
+    padding-right:9px;
+    padding-top: 9px;
+    padding-bottom: 10px;
+    background-color: #008BB4;
+    font-size: 17px;
+    position: relative;
+    left: 7px;
+    top: 1px;
+    border-top-right-radius: none;
+    border-bottom-right-radius: none;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    color: white;
+}
+.center > .form-busca input{
+    background-color: #008BB4;
+    padding-left: 9px;
+    padding-right:9px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-size: 16px;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-top-left-radius: none;
+    border-bottom-left-radius: none;
+    color: white;
+    border: none;
+}
+.branco::placeholder{
+    color:white;
+    font-weight: bold;
+}
+.branco:-ms-input-placeholder{
+    color: white;
+}
+.branco::-ms-input-placeholder{
+    color: white;
+}
+
+.center .form-busca input:focus{
+ border: none;
+ outline: none;
+}  
+
+section.cadastro-noticias > form{
+    max-width: 650px;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    background-color: cornflowerblue;
+    border-radius: 4px;
+}  
+section.cadastro-noticias > form h2{
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+} 
+section.cadastro-noticias > form input[type=text]{
+    width: 45%;
+}
+section.cadastro-noticias > form input{
+    padding: 8px;
+    font-size: 16px;
+    margin: 10px 10px;
+    border-radius: 4px;
+    border: 1px solid cornflowerblue;
+}
+section.cadastro-noticias > form input[type=submit]{
+    padding: 8px 10px;
+    font-size: 18px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #Fff;
+    color:white;
+    cursor: pointer;
+    background-color: rebeccapurple;
+}
+section.cadastro-noticias > form input[type=submit]:hover{
+    background-color: purple;
+    border-radius: 2px;
+}
+section.cadastro-noticias > form input[type=file]{
+    display: none;
+}
+section.cadastro-noticias > form label{
+    width: 45%;
+    text-align: center;
+    padding: 8px;
+    font-size: 16px;
+    margin: 10px 10px;
+    border-radius: 4px;
+    color:white;
+    background-color: rebeccapurple;
+    border: 1px solid #2d2d2d;
+    transition: 0.2s;
+}
+section.cadastro-noticias > form label i{
+     color: white;
+     font-size: 16px;
+     position: relative;
+     top: 2px;
+     margin-left: 10px;
+}
+section.cadastro-noticias > form label:hover{
+    color:#2d2d2d;
+    background-color: white;
+    border: 1px solid #2d2d2d;
+    cursor: pointer;
+}
+section.cadastro-noticias > form label:hover > i{
+     color: #2d2d2d;
+}
+
+section.cadastro-noticias > form textarea{
+    width: 93%;
+    resize: none;
+    padding: 8px;
+    font-size: 16px;
+    margin: 10px 10px;
+    border-radius: 4px;
+    border: 1px solid cornflowerblue;
+}
+section.cadastro-noticias > form input:focus,textarea:focus{
+    outline: none;
+    border: 1px solid rebeccapurple;
+}
+section.noticias-adicionadas{
+    width: 100%;
+    max-width: 650px;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-color: #EAEAEA;
+}
+.noticias-single{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-flow: row wrap;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.noticias-single p{
+    font-size: 18px;
+    color: dimgray;
+    margin: 10px;
+}
+.noticias-single p a{
+    font-size: 18px;
+    text-decoration: none;
+    color: dimgray;
+}
+.noticias-single a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+.noticias-single a i{
+    font-size: 18px;
+    color: black;
+}
+
+footer{
+    width: 100%;
+    bottom:0;
+    left:0;
+    position: relative;
+    background-color: #0AACDC;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+section.cadastro-noticias > form{
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
+    section.noticias-adicionadas{
+      margin-top: 1vh;
+      margin-bottom: 2vh;
+    }
+.mensagem{
+    color: green;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+@media screen and (max-width:600px) {
+    section.cadastro-noticias > form label{
+    width: 100%;
+}
+    section.cadastro-noticias > form input[type=text]{
+       width: 100%;
+    }
+    section.cadastro-noticias > form textarea{
+    width: 100%;
+    }
+    section.cadastro-noticias > form{
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+    }
+    section.noticias-adicionadas{
+      margin-top: 2vh;
+      margin-bottom: 4vh;
+    }
+    .center > .form-busca i{
+        padding-left: 8px;
+        padding-right:8px;
+        font-size: 13px;
+        top:0px;
+
+    }
+    .center > .form-busca input{
+        padding-left: 8px;
+        padding-right:8px;
+        font-size: 12px;
+        color: white;
+    }
+}
+/*
+    script que depois pode ser util
+    <script>
+        $('input [type=submit]').click(function(){
+         $('.menssagem').html() == $('.menssagem').html('');
+         $('.menssagem').text('cadastrado com sucesso')
+        })
+    </script>
+*/
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="center">
+         <div class="logo">
+            <h2><a href="/">Easy<b>News</b></a></h2>
+         </div><!--logo-->
+          <div class="form-busca">
+             <form action="">
+                 <i class="fa fa-search" aria-hidden="true"></i>
+                 <input class="branco" name="busca" type="text" placeholder="Buscar">
+             </form>
+          </div><!--form-busca-->
+        </div><!--center-->
+    </header>
+
+    <section class="cadastro-noticias">
+    <h3 class="mensagem"><%= men1 %></h3>
+    <form enctype="multipart/form-data" method="post" action="/admin/cadastro">
+        <h2>Cadastro de Noticias</h2>
+        <input type="text" name="titulo_noticia" placeholder="Titulo da noticia" required>
+        <label class="arquivo" for="arquivo">Enviar imagem<i class="fas fa-file-image"></i></label >
+        <input type="file" name="arquivo" id="arquivo" required>
+        <input type="text" name="slug" placeholder="slug ex: noticia-tecnologia" required>
+        <input type="text" name="autor" placeholder="nome do autor" required>
+        <label class="arquivo1" for="arquivo1">Enviar Img do autor<i class="fas fa-file-image"></i></label >
+        <input type="file" name="arquivo1" id="arquivo1" required>
+        <input type="text" name="categoria" placeholder="escolha a categoria" required>
+        <textarea name="noticia" placeholder="Digite aqui a primeira parte da noticia"></textarea required>
+        <textarea name="noticia1" placeholder="Digite aqui a segunda parte da noticia"></textarea required>
+        <input type="submit" name="acao" value="Cadastrar" id="enviar" >
+    </form>
+</section>
+
+    
+
+<section class="noticias-adicionadas">
+    <% for(let i = 0; i < posts.length; i++) { %>
+   <div class="noticias-single">
+       <!--trocar para o link do heroku-->
+       <p><a href="http://localhost:3000/<%= posts[i].slug %>"><%= posts[i].tituloCurto %></a></p>
+       <a href="/admin/deletar/<%= posts[i].id %>"><i class="fab fas fa-trash"></i></a>
+
+   </div>
+   <% } %>
+</section>
+
+    <footer>
+        <p>© Matheus Martinez</p>
+    </footer>
+    
+    <script src="../public/sricpts.js"></script>
+    <script src="https://kit.fontawesome.com/3c8e4257f7.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+   <script>
+
+
+       $('body').click(function(){
+            $('.mensagem').text('')
+        })
+      
+
+        var div = document.getElementsByClassName("arquivo")[0];
+        var input = document.getElementById("arquivo");
+        var div2 = document.getElementsByClassName("arquivo1")[0];
+        var input2 = document.getElementById("arquivo1");
+        //var button = document.getElementById("enviar")
+          /*          
+        if(input.files[0] == undefined){
+           div.innerHTML = 'Arquivo Faltando';
+        }
+        if(input2.files[0] == undefined){
+            div2.innerHTML = 'Arquivo Faltando';
+        }
+        */
+
+        input.addEventListener("change", function(){
+        var nome = "Não há arquivo selecionado. Selecionar arquivo...";
+        if(input.files.length > 0) nome = input.files[0].name;
+        div.innerHTML = nome;
+        });
+
+
+        input2.addEventListener("change", function(){
+        var nome1 = "Não há arquivo selecionado. Selecionar arquivo...";
+        if(input2.files.length > 0) nome1 = input2.files[0].name;
+        div2.innerHTML = nome1;
+        });
+    </script>   
+</body>
+    </html>

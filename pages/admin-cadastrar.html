@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastre-se</title>
+</head>
+<link rel="icon" href="https://cdn-icons.flaticon.com/png/128/4076/premium/4076892.png?token=exp=1647959931~hmac=a411d98374b7fa1242f7f545a6aaeb3c">
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+header{
+    width: 100%;
+    padding:8px 0;
+    background-color: #0AACDC;
+    padding: 10px 15px;
+}
+.center{
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+.logo h2 a{
+    font-size: 28px;
+    color:white;
+    text-decoration: none;
+    font-weight:normal;
+}
+.logo h2 b{
+    font-weight: bold;
+}
+
+section.login{
+    display: flex;
+    width: 100%;
+    max-width: 1280px;
+    padding: 10px;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+section.login > form{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width:450px;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    background-color: cornflowerblue;
+    border-radius: 4px;
+}  
+section.login > form span.position{
+     position: absolute;
+}
+section.login > form span.position i{
+    position: relative;
+    font-size: 18px;
+    left: 110px;
+    top: 7px;
+    cursor: pointer;
+}
+section.login > form a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+section.login > form a:hover{
+    color: blueviolet;
+}
+section.login > form p{
+    font-size: 17px;
+    color: white;
+    text-align: center;
+}
+section.login > form h2{
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+} 
+section.login > form input{
+    padding: 8px;
+    padding-right: 60px;
+    font-size: 16px;
+    margin: 10px 10px;
+    border-radius: 4px;
+    border: 1px solid cornflowerblue;
+}
+section.cadastro-noticias > form input[type=text]{
+    width: 100%;
+}
+section.login > form input[type=submit]{
+    padding: 8px 10px;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #Fff;
+    color:white;
+    background-color: rebeccapurple;
+}
+section.login > form input[type=submit]:hover{
+    background-color: purple;
+    border-radius: 2px;
+}
+section.login > form input:focus{
+    outline: none;
+    border: 1px solid rebeccapurple;
+}
+footer{
+    width: 100%;
+    bottom:0;
+    left:0;
+    position: relative;
+    background-color: #0AACDC;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+.mensagem{
+    color: green;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+@media screen and (max-width:600px) {
+    .logo h2 a{
+    font-size: 22px;
+    color:white;
+    text-decoration: none;
+    font-weight:normal;
+}
+.center .form-busca i{
+        padding-left: 8px;
+        padding-right:8px;
+        font-size: 15px;
+        top:0;
+    }
+.center .form-busca input{
+        padding-left: 8px;
+        padding-right:8px;
+        font-size: 14px;
+        color: white;
+    }
+}
+</style>
+<body>
+
+    <header>
+        <div class="center">
+         <div class="logo">
+            <h2><a href="/">Easy<b>News</b></a></h2>
+         </div><!--logo-->
+        </div><!--center-->
+    </header>
+
+    <section class="login">
+      <form method="post">
+          <h2>Cadastrar-se</h2>
+          <h3 class="mensagem"><%= men2 %></h3>
+          <input type="text" name="nome" placeholder="Digite seu login" required>
+          <input id="myInput" type="password" name="password" placeholder="Digite sua senha" required>
+          <span class="position" id="olho">
+            <i id="hide1" class="fa far fa-eye"></i>
+            </span>
+          <input type="submit" name="acao" value="cadastrar">
+          <!--trocar para o link do heroku-->
+          <p>ja tem uma conta? <a href="http://localhost:3000/admin/login">logar-se</a></p>
+      </form>
+    </section>
+
+      <footer>
+        <p>© Matheus Martinez</p>
+    </footer>
+
+   
+    <script src="https://kit.fontawesome.com/3c8e4257f7.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+   <script>
+ 
+ $('input').click(function(){
+            $('.mensagem').text('')
+            if($('.mensagem').text() != ''){
+           $('#hide1').css('top','15px')
+        }else{
+            $('#hide1').css('top','7px')
+        }
+        })
+        if($('.mensagem').text() != ''){
+           $('#hide1').css('top','15px')
+        }else{
+            $('#hide1').css('top','7px')
+        }
+ var senha = $('#myInput');
+        var olho = $("#olho");
+
+        olho.mousedown(function() {
+        senha.attr("type", "text");
+        });
+
+        olho.mouseup(function() {
+        senha.attr("type", "password");
+        });
+        // para evitar o problema de arrastar a imagem e a senha continuar exposta, 
+        //citada pelo nosso amigo nos comentários
+        $( "#olho" ).mouseout(function() { 
+        $("#senha").attr("type", "password");
+        });
+    </script>
+</body>
+</html>
