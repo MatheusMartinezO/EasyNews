@@ -139,7 +139,7 @@ app.get('/:slug',(req,res)=>{
             console.log(req.query.busca);
             console.log(cat)
             //console.log((`http://localhost:3000/?busca=`+req.query.busca));
-            res.redirect(`http://localhost:3000/?busca=`+req.query.busca);
+            res.redirect(`https://easynews-app.herokuapp.com/?busca=`+req.query.busca);
             // trocar para o link do heroku
          }
          
@@ -200,12 +200,12 @@ app.post('/admin/cadastro',(req,res)=>{
 
     Posts.create({
         titulo: req.body.titulo_noticia,
-        imagem: 'http://localhost:3000/public/imagens/'+imagem,// trocar para o link do heroku
+        imagem: 'https://easynews-app.herokuapp.com/public/imagens/'+imagem,// trocar para o link do heroku
         categoria: categoriaUperr,
         conteudo: noticia,
         slug: req.body.slug,
         autor: req.body.autor,
-        imgAutor: 'http://localhost:3000/public/imagens/'+imagem1,// trocar para o link do heroku
+        imgAutor: 'https://easynews-app.herokuapp.com/public/imagens/'+imagem1,// trocar para o link do heroku
         views: 0,
     })
 
@@ -264,7 +264,7 @@ app.get('/admin/login',(req,res)=>{
        console.log(req.query.busca);
        console.log(cat)
        //console.log((`http://localhost:3000/?busca=`+req.query.busca));
-       res.redirect(`http://localhost:3000/?busca=`+req.query.busca);
+       res.redirect(`https://easynews-app.herokuapp.com/?busca=`+req.query.busca);
        // trocar para o link do heroku
     }
 }
