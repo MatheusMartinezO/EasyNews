@@ -332,7 +332,7 @@ section.cadastro-noticias > form{
     <% for(let i = 3; i < posts.length; i++) { %>
    <div class="noticias-single">
        <!--trocar para o link do heroku-->
-       <p><a href="http://localhost:3000/<%= posts[i].slug %>"><%= posts[i].tituloCurto %></a></p>
+       <p><a href="https://easynews-app.herokuapp.com/<%= posts[i].slug %>"><%= posts[i].tituloCurto %></a></p>
        <a href="/admin/deletar/<%= posts[i].id %>"><i class="fab fas fa-trash"></i></a>
 
    </div>
