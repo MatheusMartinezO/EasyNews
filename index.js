@@ -224,6 +224,7 @@ app.get('/admin/deletar/:id',(req,res)=>{
 })
 
 app.get('/admin/cadastrar',(req,res)=>{
+    mensagem = '';
     mensagemCadastro = ''
     res.render('admin-cadastrar',{men2:mesage})
 })
@@ -236,6 +237,7 @@ app.post('/admin/cadastrar',(req,res)=>{
 })
 app.get('/admin/login',(req,res)=>{
     if(req.session.login == null){
+        mesage = '';
         res.render('admin-login',{men: mensagem}); 
     }else{
         Posts.find({}).sort({'views': -1}).exec(function(err,posts){
