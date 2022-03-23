@@ -179,7 +179,8 @@ app.post('/admin/cadastro',(req,res)=>{
    let formato1 = req.files.arquivo1.name.split('.'); 
    var imagem1 = '';
     var imagem = '';
-    if(formato[formato.length - 1] == 'jpg' || formato[formato.length - 1] == 'png'){
+    if(formato[formato.length - 1] == 'jpg' || formato[formato.length - 1] == 'png' || formato[formato.length - 1] == 'JPEG'
+    || formato[formato.length - 1] == 'jpeg'){
         imagem = new Date().getTime()+formato[formato.length - 1];
       req.files.arquivo.mv(__dirname+'/public/imagens/'+imagem)
      }else{
