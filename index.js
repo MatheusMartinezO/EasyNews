@@ -67,6 +67,7 @@ app.get('/',(req,res) => {
                      }
 
              })
+             mensagem = '';
              mensagemCadastro = ''
              res.render('home',{posts:posts,postsTop:postsTop});
          })
@@ -131,6 +132,7 @@ app.get('/:slug',(req,res)=>{
                      
 
              })
+             mensagem = '';
              mensagemCadastro = ''
              res.render('single',{noticia:resposta,postsTop:postsTop});
 
