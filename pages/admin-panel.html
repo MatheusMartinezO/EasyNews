@@ -329,7 +329,7 @@ section.cadastro-noticias > form{
     
 
 <section class="noticias-adicionadas">
-    <% for(let i = 0; i < posts.length; i++) { %>
+    <% for(let i = 3; i < posts.length; i++) { %>
    <div class="noticias-single">
        <!--trocar para o link do heroku-->
        <p><a href="http://localhost:3000/<%= posts[i].slug %>"><%= posts[i].tituloCurto %></a></p>
