@@ -67,6 +67,7 @@ app.get('/',(req,res) => {
                      }
 
              })
+             mensagemCadastro = ''
              res.render('home',{posts:posts,postsTop:postsTop});
          })
         })
